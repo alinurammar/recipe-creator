@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
+import RecipeLayout from './components/RecipeLayout'
+import sampleRecipes from './sampleRecipes'
 interface IngredientsData {
   ingredients: string;
 }
@@ -23,11 +24,12 @@ function App() {
       // Cleanup function if needed
     };
   }, []); // Empty dependency array ensures the effect runs only once
-
+  
   return (
     <div>
       <p>Goal is to make a call to our backend</p>
       <p>Ingredients: {ingredients && ingredients.ingredients}</p>
+      <RecipeLayout recipes={sampleRecipes} />
     </div>
   );
 }

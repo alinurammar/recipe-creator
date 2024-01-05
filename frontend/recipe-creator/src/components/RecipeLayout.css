@@ -1,0 +1,12 @@
+.recipe-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    outline: 10px;
+    padding: 50px;
+    border-radius: 20px;
+    border-color: black;
+    outline-style: solid;
+  }
+  
