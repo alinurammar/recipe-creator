@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
+import IngredientInput from './components/IngredientInput';
+import './App.css';
 interface IngredientsData {
   ingredients: string;
 }
@@ -16,6 +17,7 @@ function App() {
         console.error('Error fetching data:', error);
       }
     };
+    
 
     fetchData();
 
@@ -24,8 +26,22 @@ function App() {
     };
   }, []); // Empty dependency array ensures the effect runs only once
 
+  const handleIngredientChange = (value: string) => {
+    console.log('Entered ingredients:', value);
+
+    // You can perform additional logic with the entered value here
+  };
+
+  const handleEnterPress = () => {
+    console.log('Enter key pressed. Perform your action here.');
+    // Add the action you want to perform on "Enter" key press
+
+  };
+
   return (
     <div>
+      <h1>Recipe App</h1>
+      <IngredientInput onInputChange={handleIngredientChange} onEnterPress={handleEnterPress} />
       <p>Goal is to make a call to our backend</p>
       <p>Ingredients: {ingredients && ingredients.ingredients}</p>
     </div>
