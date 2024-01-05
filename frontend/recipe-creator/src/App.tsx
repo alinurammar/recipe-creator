@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import IngredientInput from './IngredientInput';
 
 interface IngredientsData {
   ingredients: string;
@@ -16,6 +17,10 @@ function App() {
         console.error('Error fetching data:', error);
       }
     };
+    const handleIngredientChange = (value: string) => {
+      console.log('Entered ingredients:', value);
+      // You can perform additional logic with the entered value here
+    };
 
     fetchData();
 
@@ -26,6 +31,8 @@ function App() {
 
   return (
     <div>
+      <h1>Recipe App</h1>
+      <IngredientInput onInputChange={handleIngredientChange} />
       <p>Goal is to make a call to our backend</p>
       <p>Ingredients: {ingredients && ingredients.ingredients}</p>
     </div>
