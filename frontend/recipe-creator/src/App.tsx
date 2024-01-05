@@ -21,7 +21,6 @@ function App() {
     <div>
       <h1>Recipe App</h1>
       <IngredientInput onInputChange={handleIngredientChange} onEnterPress={handleEnterPress} />
-      <div/>
       <RecipeLayout recipes={sampleRecipes} />
     </div>
   );
