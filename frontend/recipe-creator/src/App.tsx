@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import RecipeLayout from './components/RecipeLayout'
+import sampleRecipes from './sampleRecipes'
 import IngredientInput from './components/IngredientInput';
 import './App.css';
 interface IngredientsData {
@@ -37,13 +39,13 @@ function App() {
     // Add the action you want to perform on "Enter" key press
 
   };
-
   return (
     <div>
       <h1>Recipe App</h1>
       <IngredientInput onInputChange={handleIngredientChange} onEnterPress={handleEnterPress} />
       <p>Goal is to make a call to our backend</p>
       <p>Ingredients: {ingredients && ingredients.ingredients}</p>
+      <RecipeLayout recipes={sampleRecipes} />
     </div>
   );
 }
