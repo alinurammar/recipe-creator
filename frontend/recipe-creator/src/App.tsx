@@ -19,13 +19,14 @@ function App() {
     const apiUrl = 'http://127.0.0.1:5000/ingredients';
     axios.post(apiUrl , { ingredients: ingredientList })
       .then(response => {
-        console.log('Backend response:', response.data);
-        let responseData: any[] = response.data['message'];  // No need for JSON.parse
-        console.log(responseData);
-        console.log(typeof(responseData))
-        console.log(typeof(sampleRecipes))
-        console.log(Array.isArray(responseData))
-        setRecipeList(responseData);
+        let responseDataString = response.data['message'];
+        try {
+          let responseData: any[] = JSON.parse(responseDataString);
+          setRecipeList(responseData);
+        } catch (error) {
+          console.error('Error parsing JSON:', error);
+          // Handle the error as needed
+        }
       })
       .catch(error => {
         console.error('Error sending data to the backend:', error);
