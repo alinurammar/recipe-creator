@@ -56,5 +56,3 @@ def extract_recipes(chat_response):
     #print(chat_response.json())
     response = chat_response.json()["choices"][0]["message"]["content"]
     return response
-
-generate_recipes(ingredientsList=constants.fridge_ingredients)
