@@ -7,7 +7,11 @@ from markupsafe import escape
 app = Flask(__name__)
 
 # Post request 
-@app.route("/ingredients")
+@app.route("/ingredients", methods=['POST'])
 @cross_origin(origin='*')
 def handle_ingredients():
-    return jsonify({'ingredients': "apples, oranges"})
+    data = request.json
+    ingredients_list_string = data.get('ingredients', '')
+    ingredients_list = [ingredient.strip() for ingredient in ingredients_list_string.split(',')]
+
+    return jsonify({'message': 'Ingredients received successfully'})

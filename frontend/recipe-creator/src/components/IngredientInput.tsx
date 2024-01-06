@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState, KeyboardEvent } from 'react';
 import './IngredientInput.css';
 interface IngredientInputProps {
   onInputChange: (value: string) => void;
-  onEnterPress: () => void;
+  onEnterPress: (value : string) => void;
 }
 
 const IngredientInput: React.FC<IngredientInputProps> = ({ onInputChange, onEnterPress }) => {
@@ -15,7 +15,7 @@ const IngredientInput: React.FC<IngredientInputProps> = ({ onInputChange, onEnte
   };
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      onEnterPress();
+      onEnterPress(inputValue);
     }
   };
 
