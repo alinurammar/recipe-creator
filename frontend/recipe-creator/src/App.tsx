@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import RecipeLayout from './components/RecipeLayout'
+import Recipe from './components/Recipe'
 import sampleRecipes from './sampleRecipes'
 import IngredientInput from './components/IngredientInput';
 import './App.css';
 
 function App() {
-  const [recipeList, setRecipeList] = useState(sampleRecipes);
+  const [recipeList, setRecipeList] = useState<any>([]);
   const handleIngredientChange = (value: string) => {
     console.log('Entered ingredients:', value);
 
