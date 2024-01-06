@@ -1,8 +1,8 @@
 from flask import request, jsonify, Response, Flask
 from flask_cors import CORS, cross_origin
 import json
-
 from markupsafe import escape
+import gpt_client
 
 app = Flask(__name__)
 
@@ -13,5 +13,5 @@ def handle_ingredients():
     data = request.json
     ingredients_list_string = data.get('ingredients', '')
     ingredients_list = [ingredient.strip() for ingredient in ingredients_list_string.split(',')]
-
-    return jsonify({'message': 'Ingredients received successfully'})
+    response =  gpt_client.generate_recipes(ingredientsList=ingredients_list)
+    return jsonify({'message': response})

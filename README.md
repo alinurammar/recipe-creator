@@ -10,7 +10,6 @@ Steps to create project (assuming react app is created)
 ## backend
 1. python3 -m venv .venv
 2. source .venv/bin/activate
-3. pip install Flask
-4. pip install flask_cors
-5. make backend-run
+3. make requirements
+4. make backend-run
 
