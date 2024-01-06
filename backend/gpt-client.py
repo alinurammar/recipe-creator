@@ -38,6 +38,25 @@ def chat_completion_request(messages, tools=None, tool_choice=None, model=GPT_MO
         print(f"Exception: {e}")
         return e
 
+def get_gpt_request(messages, model=GPT_MODEL):
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + secret_key,
+    }
+    json_data = {"model": model, "messages": messages}
+
+    try:
+        response = requests.post(
+            "https://api.openai.com/v1/chat/completions",
+            headers=headers,
+            json=json_data,
+        )
+        return response
+    except Exception as e:
+        print("Unable to generate ChatCompletion response")
+        print(f"Exception: {e}")
+        return e
+
 tools = [
     {
         "type": "function",
@@ -90,7 +109,7 @@ tools = [
 ]
 
 messages = []
-messages.append({"role": "system", "content": "Don't make assumptions about what values to plug into functions. Ask for clarification if a user request is ambiguous."})
+messages.append({"role": "system", "content": "You are a "})
 messages.append({"role": "user", "content": "What's the weather like today"})
 chat_response = chat_completion_request(
     messages, tools=tools
