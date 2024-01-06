@@ -12,6 +12,7 @@ app = Flask(__name__)
 def handle_ingredients():
     data = request.json
     ingredients_list_string = data.get('ingredients', '')
+    filter_list_string = data.get('filters', '')
     ingredients_list = [ingredient.strip() for ingredient in ingredients_list_string.split(',')]
-    response =  gpt_client.generate_recipes(ingredientsList=ingredients_list)
+    response =  gpt_client.generate_recipes(ingredientsList=ingredients_list, filtersList=filter_list_string)
     return jsonify({'message': response})

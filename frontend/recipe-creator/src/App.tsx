@@ -7,11 +7,11 @@ import './App.css';
 function App() {
   const [recipeList, setRecipeList] = useState<any>([]);
   
-  const handleEnterPress = (ingredientList: string) => {
+  const handleEnterPress = (ingredientList: string,  checkedCheckboxes: string) => {
     console.log('Enter key pressed. Sending Ingredients to Backend.');
     // Add the action you want to perform on "Enter" key press
     const apiUrl = 'http://127.0.0.1:5000/ingredients';
-    axios.post(apiUrl , { ingredients: ingredientList })
+    axios.post(apiUrl , { ingredients: ingredientList, filters: checkedCheckboxes })
       .then(response => {
         let responseDataString = response.data['message'];
         try {
