@@ -6,7 +6,7 @@ import IngredientInput from './components/IngredientInput';
 import './App.css';
 
 function App() {
-  const [recipes, setRecipes] = useState(sampleRecipes);
+  const [recipeList, setRecipeList] = useState(sampleRecipes);
   const handleIngredientChange = (value: string) => {
     console.log('Entered ingredients:', value);
 
@@ -20,8 +20,12 @@ function App() {
     axios.post(apiUrl , { ingredients: ingredientList })
       .then(response => {
         console.log('Backend response:', response.data);
-        // let data = JSON.parse(str(response.data))['message'];
-        // setRecipes(data);
+        let responseData: any[] = response.data['message'];  // No need for JSON.parse
+        console.log(responseData);
+        console.log(typeof(responseData))
+        console.log(typeof(sampleRecipes))
+        console.log(Array.isArray(responseData))
+        setRecipeList(responseData);
       })
       .catch(error => {
         console.error('Error sending data to the backend:', error);
@@ -33,7 +37,7 @@ function App() {
     <div>
       <h1>Recipe App</h1>
       <IngredientInput onInputChange={handleIngredientChange} onEnterPress={handleEnterPress} />
-      <RecipeLayout recipes={recipes} />
+      <RecipeLayout recipes={recipeList} />
     </div>
   );
 }
