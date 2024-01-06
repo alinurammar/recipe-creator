@@ -42,14 +42,6 @@ def generate_recipes(ingredientsList):
         print(f"Error generating recipes: {e}")
         return None
 
-# def build_prompt(ingredientsList):
-#     ingredients = ingredientsList + constants.pantry_and_spice_ingredients
-#     return_format = "Return each recipe in JSON format of an array of recipe objects: [{ title: string, body: string }, { title: string, body: string }]."
-#     prompt = f"Generate 3 recipes using the following ingredients: {', '.join(ingredients)}. " + return_format
-#     messages = [{"role": "system", "content": "You are a helpful assistant that provides recipes."}]
-#     messages.append({"role": "user", "content": prompt})
-
-#     return messages
 def build_prompt(ingredientsList):
     ingredients = ingredientsList + constants.pantry_and_spice_ingredients
     return_format = "Return each recipe in JSON format of an array of recipe objects: [{ id:1, title: string, body: string }, { id:2, title: string, body: string }]."
@@ -63,7 +55,6 @@ def build_prompt(ingredientsList):
 def extract_recipes(chat_response):    
     #print(chat_response.json())
     response = chat_response.json()["choices"][0]["message"]["content"]
-    print(response)
     return response
 
 generate_recipes(ingredientsList=constants.fridge_ingredients)

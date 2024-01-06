@@ -1,26 +1,8 @@
-fridge_ingredients = [
-    "Eggs",
-    "Milk",
-    "Butter",
-    "Cheese (cheddar, mozzarella, etc.)",
-    "Yogurt",
-    "Fresh vegetables (lettuce, tomatoes, carrots, bell peppers, cucumbers)",
-    "Fresh fruits (apples, oranges, grapes, berries)",
-    "Condiments (ketchup, mustard, mayonnaise)",
-    "Pickles",
-    "Hummus",
-    "Jam or jelly",
-    "Bacon",
-    "Deli meats (ham, turkey, chicken)",
-    "Tofu or tempeh",
-    "Salad dressings",
-    "Fresh herbs (parsley, cilantro)",
-    "Leftover cooked chicken or beef",
-    "Various sauces (soy sauce, barbecue sauce)",
-    "Lemon or lime",
-    "Tortillas or wraps"
-]
-
+# GPT Constants
+GPT_MODEL = "gpt-3.5-turbo-0613"
+MAX_TOKENS = 3000
+# Set the temperature to control randomness (lower values make the output more deterministic)
+TEMPERATURE = 0.7
 
 pantry_and_spice_ingredients = [
     "flour",
@@ -74,8 +56,3 @@ pantry_and_spice_ingredients = [
     "tortillas",
     "breadcrumbs",
 ]
-GPT_MODEL = "gpt-3.5-turbo-0613"
-# Set the maximum number of tokens for the response
-MAX_TOKENS = 3000
-# Set the temperature to control randomness (lower values make the output more deterministic)
-TEMPERATURE = 0.7
