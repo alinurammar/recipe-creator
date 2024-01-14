@@ -32,9 +32,9 @@ def get_gpt_response(messages, model=constants.GPT_MODEL, max_tokens=constants.M
         print(f"Exception: {e}")
         return e
 
-def generate_recipes(ingredientsList):
+def generate_recipes(ingredientsList, filtersList):
     try:
-        chat_response = get_gpt_response(build_prompt(ingredientsList))
+        chat_response = get_gpt_response(build_prompt(ingredientsList, filtersList))
         recipes = extract_recipes(chat_response)
         return recipes
 
@@ -42,13 +42,13 @@ def generate_recipes(ingredientsList):
         print(f"Error generating recipes: {e}")
         return None
 
-def build_prompt(ingredientsList):
+def build_prompt(ingredientsList, filtersList):
     ingredients = ingredientsList + constants.pantry_and_spice_ingredients
     return_format = "Return each recipe in JSON format of an array of recipe objects: [{ id:1, title: string, body: string }, { id:2, title: string, body: string }]."
-    prompt = f"Generate 3 concise recipes using the following ingredients: {', '.join(ingredients)}. " + return_format
+    prompt = f"Generate 3 concise recipes using the following ingredients: {', '.join(ingredients)}. " + return_format + " Keep the following keywords in mind as well: " + filtersList
     messages = [{"role": "system", "content": "You are a helpful assistant that provides concise recipes."}]
     messages.append({"role": "user", "content": prompt})
-
+    
     return messages
 
 
