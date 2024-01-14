@@ -22,25 +22,21 @@ const IngredientInput: React.FC<IngredientInputProps> = ({ onEnterPress }) => {
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       const checkedCheckboxesString = checkedCheckboxes.join(', ');
-      console.log(checkedCheckboxesString)
       onEnterPress(inputValue, checkedCheckboxesString);
     }
   };
 
   useEffect(() => {
-    console.log('Instantiating CheckboxManager...');
     const container = checkboxManager.checkboxContainer;
     const targetDiv = document.getElementById('checkboxContainerDiv');
 
     if (targetDiv) {
-      console.log('Appending checkbox container to targetDiv...');
       targetDiv.appendChild(container);
     } else {
       console.error("Target div not found");
     }
 
     const handleCheckboxChange = (checkedCheckboxes: string[]) => {
-      console.log('Updating checked checkboxes state...');
       setCheckedCheckboxes(checkedCheckboxes);
     };
 
