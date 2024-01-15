@@ -4,6 +4,12 @@ MAX_TOKENS = 3000
 # Set the temperature to control randomness (lower values make the output more deterministic)
 TEMPERATURE = 0.7
 
+JSON_SCHEMA = {
+    "id": "number (ex: 1, 2, 3, ...)",
+    "title": "string (ex: Grilled Lemon Herb Chicken with Roasted Vegetables)",
+    "body": "string (Ingredients, Instructions)"
+}
+
 pantry_and_spice_ingredients = [
     "flour",
     "sugar",
