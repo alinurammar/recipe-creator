@@ -44,8 +44,8 @@ def generate_recipes(ingredientsList, filtersList):
 
 def build_prompt(ingredientsList, filtersList):
     ingredients = ingredientsList + constants.pantry_and_spice_ingredients
-    return_format = "Return each recipe in JSON format of an array of recipe objects: [{ id:1, title: string, body: string }, { id:2, title: string, body: string }]."
-    prompt = f"Generate 3 concise recipes using the following ingredients: {', '.join(ingredients)}. " + return_format + " Keep the following keywords in mind as well: " + filtersList
+    return_format = "Respond with your analysis in JSON format. The JSON schema should be " + str(constants.JSON_SCHEMA)
+    prompt = f"Generate 3 recipes using the following ingredients: {', '.join(ingredients)}. " + return_format + " Use these keywords as a guide to what kind of recipes you create: " + filtersList
     messages = [{"role": "system", "content": "You are a helpful assistant that provides concise recipes."}]
     messages.append({"role": "user", "content": prompt})
     

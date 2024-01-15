@@ -17,7 +17,14 @@ const Recipe: React.FC<RecipeProps> = ({ title, body }) => {
   return (
     <div className={`recipe ${showBody ? 'expanded' : ''}`} onClick={toggleBody}>
       <h3>{title}</h3>
-      {showBody && <p className="recipe-body">{body}</p>}
+      {showBody && <p className="recipe-body">
+      {body.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))}
+    </p>}
     </div>
   );
 };

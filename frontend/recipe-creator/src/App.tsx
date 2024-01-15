@@ -16,7 +16,9 @@ function App() {
         let responseDataString = response.data['message'];
         try {
           let responseData: any[] = JSON.parse(responseDataString);
-          setRecipeList(responseData);
+          if (Array.isArray(responseData)) {
+            setRecipeList(responseData);
+          }
         } catch (error) {
           console.error('Error parsing JSON:', error);
         }
