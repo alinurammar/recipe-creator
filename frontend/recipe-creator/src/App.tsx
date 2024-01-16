@@ -4,8 +4,6 @@ import RecipeLayout from './components/RecipeLayout'
 import IngredientInput from './components/IngredientInput';
 import LoadingIcon from './components/LoadingIcon';
 import './App.css';
-// import dotenv from 'dotenv';
-// dotenv.config();
 
 function App() {
   const [recipeList, setRecipeList] = useState<any>([]);
