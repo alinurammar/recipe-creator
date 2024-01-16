@@ -5,11 +5,11 @@ import requests
 from tenacity import retry, wait_random_exponential, stop_after_attempt
 from termcolor import colored
 from dotenv import load_dotenv
+from openai import OpenAI
 import os
 import constants
 
 load_dotenv()
-
 secret_key = os.getenv('OPEN_API_KEY')
 
 @retry(wait=wait_random_exponential(multiplier=1, max=40), stop=stop_after_attempt(3))
@@ -48,7 +48,7 @@ def build_prompt(ingredientsList, filtersList):
     prompt = f"Generate 3 recipes using the following ingredients: {', '.join(ingredients)}. " + return_format + " Use these keywords as a guide to what kind of recipes you create: " + filtersList
     messages = [{"role": "system", "content": "You are a helpful assistant that provides concise recipes."}]
     messages.append({"role": "user", "content": prompt})
-    
+
     return messages
 
 

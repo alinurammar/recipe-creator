@@ -10,6 +10,7 @@ JSON_SCHEMA = {
     "body": "string (Ingredients, Instructions)"
 }
 
+USER_INPUT_FORMAT = "Ingredients: ..., ..., ... Keywords: ..., ..., ..."
 pantry_and_spice_ingredients = [
     "flour",
     "sugar",
