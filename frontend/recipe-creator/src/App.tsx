@@ -8,8 +8,6 @@ import './App.css';
 function App() {
   const [recipeList, setRecipeList] = useState<any>([]);
   const [loading, setLoading] = useState(false);
-  const port = process.env.PORT;
-  const databaseUrl = process.env.DATABASE_URL;
   const handleEnterPress = (ingredientList: string,  checkedCheckboxes: string) => {
     console.log('Enter key pressed. Sending Ingredients to Backend.');
     const apiUrl = process.env.REACT_APP_API_URL;
