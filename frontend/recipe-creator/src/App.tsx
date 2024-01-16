@@ -12,10 +12,11 @@ function App() {
   const databaseUrl = process.env.DATABASE_URL;
   const handleEnterPress = (ingredientList: string,  checkedCheckboxes: string) => {
     console.log('Enter key pressed. Sending Ingredients to Backend.');
-    // Add the action you want to perform on "Enter" key press
-    const apiUrl = databaseUrl + ':' + port + '/ingredients';
-    // const apiUrl = 'http://127.0.0.1:5000/ingredients';
-    console.log(apiUrl)
+    const apiUrl = process.env.REACT_APP_API_URL;
+    if (typeof apiUrl != 'string'){
+      console.error('Internal Server error');
+      return
+    }
     setLoading(true);
     axios.post(apiUrl , { ingredients: ingredientList, filters: checkedCheckboxes })
       .then(response => {
