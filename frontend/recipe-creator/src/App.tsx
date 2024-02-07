@@ -1,45 +1,52 @@
 import { useState } from 'react';
-import axios from 'axios';
-import RecipeLayout from './components/RecipeLayout'
-import IngredientInput from './components/IngredientInput';
-import LoadingIcon from './components/LoadingIcon';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import RecipeGenerator from './pages/RecipeGenerator';
+import AboutUs from './pages/AboutUs';
 import './App.css';
 
+import homeImage from './assets/home.svg';
+import aboutImage from './assets/about.svg';
+import skilletImage from './assets/skillet.svg';
+import iconImage from './assets/icon.svg';
+
 function App() {
-  const [recipeList, setRecipeList] = useState<any>([]);
-  const [loading, setLoading] = useState(false);
-
-  const handleEnterPress = (ingredientList: string,  checkedCheckboxes: string) => {
-    console.log('Enter key pressed. Sending Ingredients to Backend.');
-    // Add the action you want to perform on "Enter" key press
-    const apiUrl = 'http://127.0.0.1:5000/ingredients';
-    setLoading(true);
-    axios.post(apiUrl , { ingredients: ingredientList, filters: checkedCheckboxes })
-      .then(response => {
-        let responseDataString = response.data['message'];
-        try {
-          let responseData: any[] = JSON.parse(responseDataString);
-          if (Array.isArray(responseData)) {
-            setRecipeList(responseData);
-          }
-        } catch (error) {
-          console.error('Error parsing JSON:', error);
-        } finally {
-          setLoading(false);
-        }
-      })
-      .catch(error => {
-        console.error('Error sending data to the backend:', error);
-        setLoading(false);
-      });
-
-  };
   return (
     <div>
-      <h1>Recipe App</h1>
-      <IngredientInput onEnterPress={handleEnterPress} />
-      {loading && <LoadingIcon/>}
-      <RecipeLayout recipes={recipeList} />
+      <Router>
+        <div className='top-pane'>
+
+          {/* Icon section */}
+          <img src={iconImage}></img>
+
+          {/* Header */}
+          <div className='header'>
+
+            {/* Welcome Section */}
+            <div>
+              <div className='header-text'>
+                <div className='title'>Welcome to  PantryPal!</div>
+                <div className='subtitle'>We're excited to have you here. Let's get started!</div>
+              </div>
+            </div>
+
+            {/* Navigation Bar */}
+            <div>
+              <nav className="navigation-bar">
+                <Link to="/">{<img src={homeImage} alt="Home" />}</Link>
+                <Link to="/recipe-generator"><img src={aboutImage} alt="About Us" /></Link>
+                <Link to="/about-us"><img src={skilletImage} alt="Recipe Generator" /></Link>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/recipe-generator" element={<RecipeGenerator />} />
+          <Route path="/about-us" element={<AboutUs />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
