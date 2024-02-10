@@ -45,7 +45,7 @@ function RecipeGenerator() {
                 try {
                     let responseData: any[] = JSON.parse(responseDataString);
                     if (Array.isArray(responseData)) {
-                        setRecipeList(responseData);
+                        setRecipeList([...responseData]);
                     }
                 } catch (error) {
                     console.error('Error parsing JSON:', error);
