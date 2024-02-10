@@ -34,8 +34,8 @@ function App() {
             <div>
               <nav className="navigation-bar">
                 <Link to="/">{<img src={homeImage} alt="Home" />}</Link>
-                <Link to="/recipe-generator"><img src={aboutImage} alt="About Us" /></Link>
-                <Link to="/about-us"><img src={skilletImage} alt="Recipe Generator" /></Link>
+                <Link to="/recipe-generator"><img src={skilletImage} alt="Recipe Generator" /></Link>
+                <Link to="/about-us"><img src={aboutImage} alt="About Us" /></Link>
               </nav>
             </div>
           </div>
