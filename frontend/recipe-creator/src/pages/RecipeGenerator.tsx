@@ -11,8 +11,16 @@ function RecipeGenerator() {
     const [loading, setLoading] = useState(false);
     const [selectedFilters, setSelectedFilters] = useState<{ [name: string]: string[] }>({});
     const [ingredientList, setIngredientList] = useState<string>('');
+    const [generateClicked, setGenerateClicked] = useState(false);
 
     const handleGenerateClick = () => {
+
+        // Check if ingredient list is empty
+        setGenerateClicked(true);
+        if (ingredientList.trim() === '') {
+            return;
+        }
+
         const checkedBoxes: string[] = ([] as string[]).concat(...Object.values(selectedFilters));
         const apiUrl = process.env.REACT_APP_API_URL;
         if (typeof apiUrl !== 'string') {
@@ -50,6 +58,9 @@ function RecipeGenerator() {
 
     const handleIngredientListChange = (ingredients: string) => {
         setIngredientList(ingredients);
+        if (ingredients.trim() !== '') {
+            setGenerateClicked(false); // Reset generateClicked when ingredient list is not empty
+        }
     };
 
 
@@ -63,6 +74,9 @@ function RecipeGenerator() {
                     <FilterLayout name='Dietary Restrictions' filterType='checkbox' filters={['Halal', 'Keto', 'Dairy-free', 'Vegan']} onFilterChange={handleFilterChange} />
                     <FilterLayout name='Meal Speed' filterType='radio' filters={['< 30 mins', '1 hr', '2hr', 'None']} onFilterChange={handleFilterChange} />
                 </div>
+                {(generateClicked && ingredientList.trim() === '') &&
+                    <div className="error-message">Please enter at least one ingredient.</div>
+                }
                 <div className='bottom-component'>
                     <IngredientInput onIngredientChange={handleIngredientListChange} />
                     <button className='generate' onClick={handleGenerateClick}>Generate</button>
