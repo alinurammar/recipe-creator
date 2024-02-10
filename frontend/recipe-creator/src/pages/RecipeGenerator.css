@@ -1,4 +1,25 @@
-body {
-    padding: 20px;
-  }
-  
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-component {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.generate {
+  border-radius: 99px;
+  background-color: #D6BBBB;
+  font-weight: bold;
+  width: 15%;
+  min-width: 12%;
+}
