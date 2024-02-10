@@ -14,7 +14,7 @@ function RecipeGenerator() {
     const [generateClicked, setGenerateClicked] = useState(false);
 
     // Setup axios configs
-    const apiUrl = process.env.REACT_APP_API_URL + ":5000";
+    const apiUrl = process.env.REACT_APP_API_URL;
     axios.defaults.baseURL = apiUrl;
     axios.defaults.headers.post['Content-Type'] = 'application/json';
 
