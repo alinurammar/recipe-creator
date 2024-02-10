@@ -13,22 +13,32 @@ function RecipeGenerator() {
     const [ingredientList, setIngredientList] = useState<string>('');
     const [generateClicked, setGenerateClicked] = useState(false);
 
-    const handleGenerateClick = () => {
+    // Setup axios configs
+    const apiUrl = process.env.REACT_APP_API_URL + ":5000";
+    axios.defaults.baseURL = apiUrl;
+    axios.defaults.headers.post['Content-Type'] = 'application/json';
 
+    const handleGenerateClick = () => {
         // Check if ingredient list is empty
         setGenerateClicked(true);
         if (ingredientList.trim() === '') {
             return;
         }
 
-        const checkedBoxes: string[] = ([] as string[]).concat(...Object.values(selectedFilters));
-        const apiUrl = process.env.REACT_APP_API_URL;
+        const checkedBoxes: string = Object.values(selectedFilters).join(',');
+
         if (typeof apiUrl !== 'string') {
             console.error('Error fetching backend server');
             return;
         }
         setLoading(true);
-        axios.post(apiUrl, { ingredients: ingredientList, filters: checkedBoxes, selectedFilters: selectedFilters })
+        axios.post('/ingredients',
+            {
+                ingredients: ingredientList,
+                filters: checkedBoxes,
+                selectedFilters: selectedFilters
+            }
+        )
             .then(response => {
                 console.log(response.data)
                 let responseDataString = response.data['message'];
