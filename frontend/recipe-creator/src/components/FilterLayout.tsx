@@ -38,13 +38,15 @@ const FilterLayout: React.FC<FilterLayoutProps> = ({ name, filterType, filters, 
             <div>
                 {filters.map(filter => (
                     <div key={filter} className="filter-item">
-                        <input
-                            className="input"
-                            type={filterType}
-                            checked={checkedFilters.includes(filter)}
-                            onChange={() => handleCheckboxChange(filter)}
-                        />
-                        <label className="filter-label">{filter}</label>
+                        <label className="filter-label">
+                            <input
+                                className="input"
+                                type={filterType}
+                                checked={checkedFilters.includes(filter)}
+                                onChange={() => handleCheckboxChange(filter)}
+                            />
+                            {filter}
+                        </label>
                     </div>
                 ))}
             </div>

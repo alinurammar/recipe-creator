@@ -1,6 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .bottom-component {
@@ -18,10 +25,12 @@
 
 .generate {
   border-radius: 99px;
-  background-color: #D6BBBB;
+  background-color: #FFDAB9;
   font-weight: bold;
   width: 15%;
   min-width: 12%;
+  font-family: 'Inter', serif;
+  font-size: 1.2em;
 }
 
 .error-message {

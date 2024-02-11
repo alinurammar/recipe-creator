@@ -2,5 +2,6 @@
 .filter-container {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    font-family: 'Inter', serif;
+    font-size: 1.2em;
 }
