@@ -3,6 +3,12 @@
   src: url(https://fonts.googleapis.com/css?family=Inter);
 }
 
+.container {
+  max-width: 1200px; /* Set a maximum width for the container */
+  min-width: 400px;
+  margin: 0 auto; /* Center the container */
+}
+
 .top-pane {
   display: flex;
   align-items: center;
