@@ -77,12 +77,12 @@ function RecipeGenerator() {
     return (
         <div>
             <div className='container'>
-                <h1>Recipe Generator</h1>
-                <label>Select filter(s) and Input Ingredients</label>
+                <div className='title'>Recipe Generator</div>
+                <div className='body'>Select filter(s) and Input Ingredients</div>
                 <div className='filter-container'>
                     <FilterLayout name='Meal Style' filterType='radio' filters={['Breakfast', 'Lunch', 'Dinner', 'Dessert']} onFilterChange={handleFilterChange} />
-                    <FilterLayout name='Dietary Restrictions' filterType='checkbox' filters={['Halal', 'Keto', 'Dairy-free', 'Vegan']} onFilterChange={handleFilterChange} />
-                    <FilterLayout name='Meal Speed' filterType='radio' filters={['< 30 mins', '1 hr', '2hr', 'None']} onFilterChange={handleFilterChange} />
+                    <FilterLayout name='Dietary Restrictions' filterType='checkbox' filters={['Halal', 'Keto', 'Gluten-free', 'Dairy-free', 'Vegan']} onFilterChange={handleFilterChange} />
+                    <FilterLayout name='Meal Speed' filterType='radio' filters={['< 30 mins', '1 hr', '2hr']} onFilterChange={handleFilterChange} />
                 </div>
                 {(generateClicked && ingredientList.trim() === '') &&
                     <div className="error-message">Please enter at least one ingredient.</div>

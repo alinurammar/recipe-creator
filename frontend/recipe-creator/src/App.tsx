@@ -11,7 +11,7 @@ import iconImage from './assets/icon.svg';
 
 function App() {
   return (
-    <div className='container'>
+    <div>
       <Router>
         <div className='top-pane'>
 
