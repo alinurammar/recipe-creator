@@ -3,6 +3,8 @@ import './AboutUs.css';
 
 import ammarPfp from '../assets/Ammar_Profile.jpg';
 import imadPfp from '../assets/Imad_Profile.jpg';
+import akramPfp from '../assets/Akram_Profile.jpeg';
+import imranPfp from '../assets/Imran_Profile.jpg';
 
 const AboutUs = () => {
     return (
@@ -28,12 +30,12 @@ const AboutUs = () => {
                         <div className="position">Professional Cooker</div>
                     </div>
                     <div className="member">
-                        <img src={ammarPfp} alt="Imran Hussein" />
+                        <img src={imranPfp} alt="Imran Hussein" />
                         <div className="name">Imran Hussein</div>
                         <div className="position">Banned From Kitchen</div>
                     </div>
                     <div className="member">
-                        <img src={ammarPfp} alt="Akram Hassan" />
+                        <img src={akramPfp} alt="Akram Hassan" />
                         <div className="name">Akram Hassan</div>
                         <div className="position">Professional Yapper</div>
                     </div>
