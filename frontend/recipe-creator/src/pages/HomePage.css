@@ -40,19 +40,49 @@
   
   .section {
     width: 100%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
   }
   
   .title {
-    font-size: 24px;
-    font-weight: bold;
     margin-bottom: 10px;
   }
   
   .body {
-    font-size: 16px;
     line-height: 1.5;
     color: #1E1E1E;
     text-align: left;
   }
   
+  .image {
+    width: 25%;
+    max-width: 50%; /* Set maximum width to prevent image from exceeding container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure image is centered horizontally */
+    margin: 0 auto; /* Center the image horizontally */
+    padding-top: 10px;
+}
+
+.cta-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: 20px; /* Add some top margin for spacing */
+}
+
+
+.cta-button {
+  background-color: #FFDAB9; /* Mustard Yellow */
+  color: #000; /* White */
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #aeaeac; /* Darker shade of Mustard Yellow on hover */
+}

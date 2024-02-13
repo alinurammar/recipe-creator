@@ -1,4 +1,40 @@
-body {
-    padding: 20px;
-  }
-  
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.bottom-component {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.generate {
+  border-radius: 99px;
+  background-color: #FFDAB9;
+  font-weight: bold;
+  width: 15%;
+  min-width: 12%;
+  font-family: 'Inter', serif;
+  font-size: 1.2em;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}

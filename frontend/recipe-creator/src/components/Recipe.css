@@ -2,6 +2,7 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
+  font-family: 'Inter', serif;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   width: 89%;
@@ -9,7 +10,7 @@
 
 .recipe.expanded {
   height: auto;
-  background-color: #f0f0f0;
+  background-color: #FFDAB9;;
 }
 
 .recipe-body {
