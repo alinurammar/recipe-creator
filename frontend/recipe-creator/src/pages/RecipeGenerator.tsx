@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect, useRef, } from 'react';
 import axios from 'axios';
 import RecipeLayout from '../components/RecipeLayout'
 import IngredientInput from '../components/IngredientInput';
@@ -7,13 +7,25 @@ import FilterLayout from '../components/FilterLayout';
 import './RecipeGenerator.css';
 
 function RecipeGenerator() {
-    const [recipeList, setRecipeList] = useState<any>([]);
+    const [recipeList, setRecipeList] = useState<any>(() => {
+        const storedData = localStorage.getItem('recipeList');
+        return storedData ? JSON.parse(storedData) : [];
+    });
     const [loading, setLoading] = useState(false);
     const [selectedFilters, setSelectedFilters] = useState<{ [name: string]: string[] }>({});
-    const [ingredientList, setIngredientList] = useState<string>('');
     const [generateClicked, setGenerateClicked] = useState(false);
-    const [includePantry, setIncludePantry] = useState(true); // State for including pantry items
-    const [strictlyIngredients, setStrictlyIngredients] = useState(false); // State for strictly using provided ingredients
+    const [includePantry, setIncludePantry] = useState(true);
+    const [strictlyIngredients, setStrictlyIngredients] = useState(false);
+    const [ingredientList, setIngredientList] = useState<string>('');
+
+    useEffect(() => {
+        localStorage.setItem('ingredientList', ingredientList);
+    }, [ingredientList]);
+
+    useEffect(() => {
+        localStorage.setItem('recipeList', JSON.stringify(recipeList));
+    }, [recipeList]);
+
 
     // Setup axios configs
     const apiUrl = process.env.REACT_APP_API_URL;
