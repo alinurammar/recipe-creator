@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource-variable/inter": "^5.0.16",
     "@gorhom/animated-tabbar": "^2.1.2",
     "@react-navigation/native-stack": "^6.9.17",
     "@testing-library/jest-dom": "^5.17.0",
