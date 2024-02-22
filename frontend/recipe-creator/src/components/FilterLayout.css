@@ -2,6 +2,6 @@
 .filter-container {
     display: flex;
     flex-direction: column;
-    font-family: 'Inter', serif;
+    font-family: 'Inter Variable', serif;
     font-size: 1.2em;
 }

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import RecipeGenerator from './pages/RecipeGenerator';
 import AboutUs from './pages/AboutUs';
+import '@fontsource-variable/inter';
 import './App.css';
 
 import homeImage from './assets/home.svg';

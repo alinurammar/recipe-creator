@@ -12,6 +12,8 @@ function RecipeGenerator() {
     const [selectedFilters, setSelectedFilters] = useState<{ [name: string]: string[] }>({});
     const [ingredientList, setIngredientList] = useState<string>('');
     const [generateClicked, setGenerateClicked] = useState(false);
+    const [includePantry, setIncludePantry] = useState(true); // State for including pantry items
+    const [strictlyIngredients, setStrictlyIngredients] = useState(false); // State for strictly using provided ingredients
 
     // Setup axios configs
     const apiUrl = process.env.REACT_APP_API_URL;
@@ -35,6 +37,8 @@ function RecipeGenerator() {
         axios.post('/ingredients',
             {
                 ingredients: ingredientList,
+                includePantry: includePantry, // Include pantry checkbox state
+                strictlyIngredients: strictlyIngredients, // Strictly ingredients checkbox state
                 filters: checkedBoxes,
                 selectedFilters: selectedFilters
             }
@@ -73,6 +77,15 @@ function RecipeGenerator() {
         }
     };
 
+    // Function to handle changes in the include pantry checkbox
+    const handleIncludePantryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setIncludePantry(event.target.checked);
+    };
+
+    // Function to handle changes in the strictly ingredients checkbox
+    const handleStrictlyIngredientsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setStrictlyIngredients(event.target.checked);
+    };
 
     return (
         <div>
@@ -83,6 +96,21 @@ function RecipeGenerator() {
                     <FilterLayout name='Meal Style' filterType='radio' filters={['Breakfast', 'Lunch', 'Dinner', 'Dessert']} onFilterChange={handleFilterChange} />
                     <FilterLayout name='Dietary Restrictions' filterType='checkbox' filters={['Halal', 'Keto', 'Gluten-free', 'Dairy-free', 'Vegan']} onFilterChange={handleFilterChange} />
                     <FilterLayout name='Meal Speed' filterType='radio' filters={['< 30 mins', '1 hr', '2hr']} onFilterChange={handleFilterChange} />
+                </div>
+                <div className="checkbox-container">
+                    <label>
+                        <input type="checkbox" checked={includePantry} onChange={handleIncludePantryChange} />
+                        Include default pantry items
+                        <span className="tooltip">
+                            <img src="https://static.thenounproject.com/png/1871193-200.png" alt="Tooltip" />
+                            <span className="tooltiptext">By selecting this option, the search will include common pantry items such as flour, sugar, spices, eggs, milk, etc.</span>
+                        </span>
+                    </label>
+                    <br />
+                    <label>
+                        <input type="checkbox" checked={strictlyIngredients} onChange={handleStrictlyIngredientsChange} />
+                        Strictly use provided ingredients
+                    </label>
                 </div>
                 {(generateClicked && ingredientList.trim() === '') &&
                     <div className="error-message">Please enter at least one ingredient.</div>

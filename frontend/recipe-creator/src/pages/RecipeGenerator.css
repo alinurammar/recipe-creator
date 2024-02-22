@@ -8,12 +8,14 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #333; /* Text color */
 }
 
 .bottom-component {
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .filter-container {
@@ -27,14 +29,56 @@
   border-radius: 99px;
   background-color: #FFDAB9;
   font-weight: bold;
-  width: 15%;
-  min-width: 12%;
-  font-family: 'Inter', serif;
-  font-size: 1.2em;
+  width: 18%;
+  min-width: 15%;
+  font-family: 'Inter Variable', serif;
+  font-size: 1em;
+  /* padding: 10px 20px; */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.generate:hover {
+  background-color: #FFB69B; /* Change background color on hover */
 }
 
 .error-message {
   color: red;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip img {
+  width: 25px; /* Adjust the width of the image */
+  height: 25px; /* Adjust the height of the image */
+  margin-right: 5px; /* Add some right margin for spacing */
 }

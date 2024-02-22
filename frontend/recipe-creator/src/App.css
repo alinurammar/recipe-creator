@@ -1,6 +1,5 @@
 @font-face {
-  font-family: Inter;
-  src: url(https://fonts.googleapis.com/css?family=Inter);
+  font-family: 'Inter Variable', sans-serif;
 }
 
 .container {
@@ -34,7 +33,7 @@ body {
   padding: 20px;
   padding-top: 0px;
   font-size: 100%;
-  font-family: 'Inter', serif;
+  font-family: 'Inter Variable', serif;
 }
 
 .navigation-bar {
@@ -53,11 +52,11 @@ body {
 }
 
 .title {
-  font-family: 'Inter', serif;
+  font-family: 'Inter Variable', serif;
   font-size: 2em;
 }
 
 .subtitle {
-  font-family: 'Inter', serif;
+  font-family: 'Inter Variable', serif;
   font-size: 1.2em;
 }
