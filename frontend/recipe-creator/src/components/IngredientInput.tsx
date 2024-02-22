@@ -7,7 +7,9 @@ interface IngredientInputProps {
 }
 
 const IngredientInput: React.FC<IngredientInputProps> = ({ onIngredientChange }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>(() => {
+    return localStorage.getItem('ingredientList') || '';
+  });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
