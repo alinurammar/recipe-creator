@@ -37,8 +37,8 @@ function RecipeGenerator() {
         axios.post('/ingredients',
             {
                 ingredients: ingredientList,
-                includePantry: includePantry, // Include pantry checkbox state
-                strictlyIngredients: strictlyIngredients, // Strictly ingredients checkbox state
+                includePantry: includePantry,
+                strictlyIngredients: strictlyIngredients,
                 filters: checkedBoxes,
                 selectedFilters: selectedFilters
             }
@@ -73,16 +73,14 @@ function RecipeGenerator() {
     const handleIngredientListChange = (ingredients: string) => {
         setIngredientList(ingredients);
         if (ingredients.trim() !== '') {
-            setGenerateClicked(false); // Reset generateClicked when ingredient list is not empty
+            setGenerateClicked(false);
         }
     };
 
-    // Function to handle changes in the include pantry checkbox
     const handleIncludePantryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIncludePantry(event.target.checked);
     };
 
-    // Function to handle changes in the strictly ingredients checkbox
     const handleStrictlyIngredientsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setStrictlyIngredients(event.target.checked);
     };

@@ -32,7 +32,8 @@
   width: 18%;
   min-width: 15%;
   font-family: 'Inter Variable', serif;
-  font-size: 1em;
+  font-size: .9em;
+  color: black;
   /* padding: 10px 20px; */
   border: none;
   cursor: pointer;
