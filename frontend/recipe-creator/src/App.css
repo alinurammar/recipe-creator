@@ -3,12 +3,42 @@
 }
 
 .container {
-  max-width: 1200px; /* Set a maximum width for the container */
-  min-width: 400px;
+  max-width: 90%;
   margin: 0 auto; /* Center the container */
 }
 
+@media screen and (max-width: 768px) {
+  .top-pane img {
+    width: 30%;
+  }
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .navigation-bar img {
+    width: 75%;
+  }  
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    padding: 0px;
+    width: 100%;
+  }
+  .header-text {
+    padding-top: 20px;
+  }
+  .top-pane {
+    padding-bottom: 10px;
+  }
+  * {
+    font-size: 93%;
+  }
+}
+
 .top-pane {
+  width: 100%;
+  margin: 0 auto; /* Center the top pane horizontally */
   display: flex;
   align-items: center;
 }

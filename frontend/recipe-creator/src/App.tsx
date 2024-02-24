@@ -26,7 +26,7 @@ function App() {
             <div>
               <div className='header-text'>
                 <div className='title'>Welcome to  PantryPal!</div>
-                <div className='subtitle'>We're excited to have you here. Let's get started!</div>
+                <div className='subtitle'>Happy you're here - Let's get cooking!</div>
               </div>
             </div>
 
