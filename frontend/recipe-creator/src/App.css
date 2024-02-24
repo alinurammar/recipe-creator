@@ -1,15 +1,44 @@
 @font-face {
-  font-family: Inter;
-  src: url(https://fonts.googleapis.com/css?family=Inter);
+  font-family: 'Inter Variable', sans-serif;
 }
 
 .container {
-  max-width: 1200px; /* Set a maximum width for the container */
-  min-width: 400px;
+  max-width: 90%;
   margin: 0 auto; /* Center the container */
 }
 
+@media screen and (max-width: 768px) {
+  .top-pane img {
+    width: 30%;
+  }
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .navigation-bar img {
+    width: 75%;
+  }  
+}
+
+@media only screen and (max-width: 400px) {
+  .container {
+    padding: 0px;
+    width: 100%;
+  }
+  .header-text {
+    padding-top: 20px;
+  }
+  .top-pane {
+    padding-bottom: 10px;
+  }
+  * {
+    font-size: 93%;
+  }
+}
+
 .top-pane {
+  width: 100%;
+  margin: 0 auto; /* Center the top pane horizontally */
   display: flex;
   align-items: center;
 }
@@ -34,7 +63,7 @@ body {
   padding: 20px;
   padding-top: 0px;
   font-size: 100%;
-  font-family: 'Inter', serif;
+  font-family: 'Inter Variable', serif;
 }
 
 .navigation-bar {
@@ -53,11 +82,11 @@ body {
 }
 
 .title {
-  font-family: 'Inter', serif;
+  font-family: 'Inter Variable', serif;
   font-size: 2em;
 }
 
 .subtitle {
-  font-family: 'Inter', serif;
+  font-family: 'Inter Variable', serif;
   font-size: 1.2em;
 }

@@ -2,10 +2,12 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
-  font-family: 'Inter', serif;
+  font-family: 'Inter Variable', serif;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out; 
   width: 89%;
+  height: auto;
 }
 
 .recipe.expanded {

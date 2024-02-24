@@ -26,9 +26,23 @@
 
 .member img {
     width: 250px;
-    height: 250px;
+    height: 250px;    
     border-radius: 50%;
     margin-bottom: 10px;
+}
+
+@media (max-width: 768px) { /* Adjust the breakpoint as needed */
+    .member img {
+        width: 150px; /* Adjust the width for smaller screens */
+        height: 150px; /* Adjust the width for smaller screens */
+    }
+}
+
+@media (min-width: 769px) {
+    .member img {
+        height: 200px;
+        width: 200px; /* Adjust the maximum width for larger screens */
+    }
 }
 
 .name {

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import RecipeGenerator from './pages/RecipeGenerator';
 import AboutUs from './pages/AboutUs';
+import '@fontsource-variable/inter';
 import './App.css';
 
 import homeImage from './assets/home.svg';
@@ -25,7 +26,7 @@ function App() {
             <div>
               <div className='header-text'>
                 <div className='title'>Welcome to  PantryPal!</div>
-                <div className='subtitle'>We're excited to have you here. Let's get started!</div>
+                <div className='subtitle'>Happy you're here - Let's get cooking!</div>
               </div>
             </div>
 
