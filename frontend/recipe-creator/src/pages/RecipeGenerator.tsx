@@ -35,7 +35,7 @@ function RecipeGenerator() {
     const handleGenerateClick = () => {
         // Check if ingredient list is empty
         setGenerateClicked(true);
-        if (ingredientList.trim() === '') {
+        if (ingredientList.trim() === '' || ingredientList.split(',').length < 3) {
             return;
         }
 
@@ -43,6 +43,12 @@ function RecipeGenerator() {
 
         if (typeof apiUrl !== 'string') {
             console.error('Error fetching backend server');
+            return;
+        }
+
+        // prevent multiple api calls simultaneously
+        if (loading) {
+            console.log('Attempting to generate while existing call exists');
             return;
         }
         setLoading(true);
@@ -84,7 +90,7 @@ function RecipeGenerator() {
 
     const handleIngredientListChange = (ingredients: string) => {
         setIngredientList(ingredients);
-        if (ingredients.trim() !== '') {
+        if (ingredients.trim() !== '' && ingredientList.split(',').length >= 3) {
             setGenerateClicked(false);
         }
     };
@@ -122,9 +128,10 @@ function RecipeGenerator() {
                         Strictly use provided ingredients
                     </label>
                 </div>
-                {(generateClicked && ingredientList.trim() === '') &&
-                    <div className="error-message">Please enter at least one ingredient.</div>
+                {(generateClicked && (ingredientList.trim() === '' || ingredientList.split(',').length < 3)) &&
+                    <div className="error-message">Please enter at least three comma-separated ingredient.</div>
                 }
+
                 <div className='bottom-component'>
                     <IngredientInput onIngredientChange={handleIngredientListChange} />
                     <button className='generate' onClick={handleGenerateClick}>Generate</button>
