@@ -17,6 +17,19 @@ function RecipeGenerator() {
     const [includePantry, setIncludePantry] = useState(true);
     const [strictlyIngredients, setStrictlyIngredients] = useState(false);
     const [ingredientList, setIngredientList] = useState<string>('');
+    const [generateErrorFlag, setGenerateErrorFlag] = useState(false);
+
+    useEffect(() => {
+        if (generateErrorFlag) {
+            const timer = setTimeout(() => {
+                setGenerateErrorFlag(false);
+            }, 5000); // 5000 milliseconds = 5 seconds
+
+            return () => {
+                clearTimeout(timer);
+            };
+        }
+    }, [generateErrorFlag]);
 
     useEffect(() => {
         localStorage.setItem('ingredientList', ingredientList);
@@ -35,7 +48,7 @@ function RecipeGenerator() {
     const handleGenerateClick = () => {
         // Check if ingredient list is empty
         setGenerateClicked(true);
-        if (ingredientList.trim() === '') {
+        if (ingredientList.trim() === '' || ingredientList.split(',').length < 3) {
             return;
         }
 
@@ -45,6 +58,13 @@ function RecipeGenerator() {
             console.error('Error fetching backend server');
             return;
         }
+
+        // prevent multiple api calls simultaneously
+        if (loading) {
+            console.log('Attempting to generate while existing call exists');
+            return;
+        }
+        setRecipeList([]);
         setLoading(true);
         axios.post('/ingredients',
             {
@@ -62,8 +82,12 @@ function RecipeGenerator() {
                     let responseData: any[] = JSON.parse(responseDataString);
                     if (Array.isArray(responseData)) {
                         setRecipeList([...responseData]);
+                    } else {
+                        setGenerateErrorFlag(true);
+                        console.log("couldn't parse response object");
                     }
                 } catch (error) {
+                    setGenerateErrorFlag(true);
                     console.error('Error parsing JSON:', error);
                 } finally {
                     setLoading(false);
@@ -84,7 +108,7 @@ function RecipeGenerator() {
 
     const handleIngredientListChange = (ingredients: string) => {
         setIngredientList(ingredients);
-        if (ingredients.trim() !== '') {
+        if (ingredients.trim() !== '' && ingredientList.split(',').length >= 3) {
             setGenerateClicked(false);
         }
     };
@@ -122,9 +146,10 @@ function RecipeGenerator() {
                         Strictly use provided ingredients
                     </label>
                 </div>
-                {(generateClicked && ingredientList.trim() === '') &&
-                    <div className="error-message">Please enter at least one ingredient.</div>
+                {(generateClicked && (ingredientList.trim() === '' || ingredientList.split(',').length < 3)) &&
+                    <div className="error-message">Please enter at least three comma-separated ingredient.</div>
                 }
+                {generateErrorFlag && <div className="error-message">Error generating recipe - please try again!</div>}
                 <div className='bottom-component'>
                     <IngredientInput onIngredientChange={handleIngredientListChange} />
                     <button className='generate' onClick={handleGenerateClick}>Generate</button>
