@@ -52,8 +52,6 @@ function RecipeGenerator() {
             return;
         }
 
-        const checkedBoxes: string = Object.values(selectedFilters).join(',');
-
         if (typeof apiUrl !== 'string') {
             console.error('Error fetching backend server');
             return;
@@ -71,17 +69,15 @@ function RecipeGenerator() {
                 ingredients: ingredientList,
                 includePantry: includePantry,
                 strictlyIngredients: strictlyIngredients,
-                filters: checkedBoxes,
                 selectedFilters: selectedFilters
             }
         )
             .then(response => {
                 console.log(response.data)
-                let responseDataString = response.data['message'];
+                let responseData = response.data['message'];
                 try {
-                    let responseData: any[] = JSON.parse(responseDataString);
                     if (Array.isArray(responseData)) {
-                        setRecipeList([...responseData]);
+                        setRecipeList(responseData);
                     } else {
                         setGenerateErrorFlag(true);
                         console.log("couldn't parse response object");
