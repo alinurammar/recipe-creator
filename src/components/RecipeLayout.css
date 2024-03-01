@@ -1,6 +1,6 @@
 .recipe-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(max-content, auto));
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   padding: 20px;
 }

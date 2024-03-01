@@ -15,11 +15,6 @@ const HomePage = () => {
                     </div>
                 </div>
 
-                <div className="section testimonials">
-                    <div className="title">Hear from our users...</div>
-                    <Carousel />
-                </div>
-
                 <div className="section">
                     <div className="section">
                         <div className="title">How Does This Work?</div>
@@ -27,6 +22,11 @@ const HomePage = () => {
                             Tell us what’s in your pantry, and we'll help you come up with recipes. It's really simple - try it out!
                         </div>
                     </div>
+                </div>
+
+                <div className="section testimonials">
+                    <div className="title">Hear from our users...</div>
+                    <Carousel />
                 </div>
 
                 <div className="cta-container">
