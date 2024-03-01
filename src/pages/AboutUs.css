@@ -78,3 +78,17 @@
     background-color: #aeaeac;
   }
   
+  .social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.social-icon img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    fill: #000; /* Adjust color as needed */
+}
+
+/* Additional styling for social links if desired */
