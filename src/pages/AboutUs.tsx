@@ -32,13 +32,6 @@ const AboutUs = () => {
             </div>
 
             <div className="section">
-                <div className="title">How do you make money?</div>
-                <div className="subtitle">
-                    We save so much on groceries and now we have a newfound budget for side projects!
-                </div>
-            </div>
-
-            <div className="section">
                 <div className="title">Our Story</div>
                 <div className="subtitle">
                     We are NOT a startup! Just college students and new grads trying to convert our engineering & product skills to cooking skills. AI will replace us soon so we're just getting a head start back to the kitchen.

@@ -15,6 +15,11 @@ const HomePage = () => {
                     </div>
                 </div>
 
+                <div className="section testimonials">
+                    <div className="title">Hear from our users...</div>
+                    <Carousel />
+                </div>
+
                 <div className="section">
                     <div className="section">
                         <div className="title">How Does This Work?</div>
@@ -24,9 +29,11 @@ const HomePage = () => {
                     </div>
                 </div>
 
-                <div className="section testimonials">
-                    <div className="title">Hear from our users...</div>
-                    <Carousel />
+                <div className="section">
+                    <div className="title">How do you make money?</div>
+                    <div className="subtitle">
+                        We save so much on groceries and now we have a newfound budget for side projects!
+                    </div>
                 </div>
 
                 <div className="cta-container">
