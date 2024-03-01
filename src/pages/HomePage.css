@@ -31,6 +31,7 @@
   }
   
   .main-container {
+    /* padding-top: 20px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +39,7 @@
   
   .section {
     width: 100%;
-    /* margin-bottom: 30px; */
+    margin-bottom: 30px;
   }
 
   .body {
@@ -60,7 +61,6 @@
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  margin-top: 20px; /* Add some top margin for spacing */
 }
 
 
@@ -75,6 +75,7 @@
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-bottom: 20px;
 }
 
 .cta-button:hover {
