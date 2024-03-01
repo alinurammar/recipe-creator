@@ -12,8 +12,33 @@ const AboutUs = () => {
             <div className="section">
                 <div className="title">About Us</div>
                 <div className="subtitle">
-                    At PantryPal, we believe that cooking should be fun, easy, and accessible to everyone.
-                    Our mission is to help you discover new recipes, unleash your creativity in the kitchen, and enjoy delicious meals with your loved ones.
+                    We want to bring back fun, easy, and accessible cooking. Cooking shouldn't break the bank - and our goal is to help you truly discover what you have at home.
+                </div>
+            </div>
+
+
+            <div className="section">
+                <div className="title">How did you build it?</div>
+                <div className="subtitle">
+                    We use AI. Curious? Check out our code:
+                    <div className="how-code-works">
+                        <a href="https://github.com/alinurammar/recipe-generator-backend" target="_blank" rel="noopener noreferrer">Backend (Prompting & API)</a>
+                        <a href="https://github.com/alinurammar/recipe-creator" target="_blank" rel="noopener noreferrer">Frontend (Design & Site)</a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="section">
+                <div className="title">How do you make money?</div>
+                <div className="subtitle">
+                    We save so much on groceries and now we have a newfound budget for side projects!
+                </div>
+            </div>
+
+            <div className="section">
+                <div className="title">Our Story</div>
+                <div className="subtitle">
+                    We are NOT a startup! Just college students and new grads trying to convert our engineering & product skills to cooking skills. AI will replace us soon so we're just getting a head start back to the kitchen.
                 </div>
             </div>
             <div className="section">
@@ -27,7 +52,7 @@ const AboutUs = () => {
                     <div className="member">
                         <img src={imadPfp} alt="Imad Hussein" />
                         <div className="name">Imad Hussein</div>
-                        <div className="position">Professional Cooker</div>
+                        <div className="position">Aspiring Chef</div>
                     </div>
                     <div className="member">
                         <img src={imranPfp} alt="Imran Hussein" />
@@ -39,14 +64,6 @@ const AboutUs = () => {
                         <div className="name">Akram Hassan</div>
                         <div className="position">Professional Yapper</div>
                     </div>
-                </div>
-            </div>
-            <div className="section">
-                <div className="title">Our Story</div>
-                <div className="subtitle">
-                    <p>Founded by a group of college students and recent grads from Stanford, UT Austin, PantryPal was born out of our shared experience as busy students.
-                        That's why we created PantryPal - to streamline the cooking process, cut costs, and inspire culinary creativity. Our journey is fueled by our passion for technology and our love for good food.</p>
-                    <p>As young adults, we understand the demands of a hectic work schedule and the importance of finding efficient solutions. Learning to cook has been a challenge for us, but also an opportunity to get creative and save money.</p>
                 </div>
             </div>
         </div>
