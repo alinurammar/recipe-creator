@@ -136,14 +136,9 @@ function RecipeGenerator() {
                             <span className="tooltiptext">By selecting this option, the search will include common pantry items such as flour, sugar, spices, eggs, milk, etc.</span>
                         </span>
                     </label>
-                    <br />
-                    <label>
-                        <input type="checkbox" checked={strictlyIngredients} onChange={handleStrictlyIngredientsChange} />
-                        Strictly use provided ingredients
-                    </label>
                 </div>
                 {(generateClicked && (ingredientList.trim() === '' || ingredientList.split(',').length < 3)) &&
-                    <div className="error-message">Please enter at least three comma-separated ingredient.</div>
+                    <div className="error-message">Please enter at least three comma-separated ingredients.</div>
                 }
                 {generateErrorFlag && <div className="error-message">Error generating recipe - please try again!</div>}
                 <div className='bottom-component'>

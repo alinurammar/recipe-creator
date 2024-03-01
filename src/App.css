@@ -3,6 +3,7 @@
 }
 
 .container {
+  flex: 1;
   max-width: 90%;
   margin: 0 auto; /* Center the container */
 }
@@ -89,4 +90,10 @@ body {
 .subtitle {
   font-family: 'Inter Variable', serif;
   font-size: 1.2em;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Use 100% of the viewport height */
 }

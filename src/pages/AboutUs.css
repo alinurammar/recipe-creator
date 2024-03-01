@@ -56,3 +56,25 @@
 .story {
     text-align: justify;
 }
+
+.how-code-works {
+    text-align: center;
+    padding-right: 20px;
+  }
+  
+  .how-code-works a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background-color: #FFDAB9;
+    color: black;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .how-code-works a:hover {
+    background-color: #aeaeac;
+  }
+  
