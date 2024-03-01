@@ -1,17 +1,22 @@
-# PantryPal - Your Personalized Recipe Generator
+# PantryPal Frontend
 
-Welcome to the PantryPal frontend repository! PantryPal is an innovative tool that generates personalized recipes based on the ingredients you have on hand. Say goodbye to food waste and hello to delicious meals crafted by AI.
+Welcome to the frontend repository of **PantryPal** - your intelligent culinary companion that helps you craft recipes based on ingredients you have at home.
 
-This project was booted with Create React App, and it's designed to work in conjunction with our backend services to provide recipe suggestions and a seamless cooking experience.
+## Overview
 
-## Running PantryPal Locally
+PantryPal's frontend is designed with a sleek, user-friendly interface that interacts with our powerful backend to generate recipes instantly. The app is built using React, creating a responsive and interactive user experience.
 
-To run PantryPal on your local machine, you'll need to have Node.js installed. Once you have the repository cloned and Node.js ready, navigate to the project directory and run the following command:
+## Running the Project
 
-```bash
-make frontend-run
+To get PantryPal up and running on your local machine, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Run the application:
+
+```sh
+npm run start
 ```
-This command will start the React application in development mode. Open http://localhost:3000 in your web browser to view and interact with the application.
 
 ## Exploring the Design
 PantryPal's frontend is crafted with a clean, modern design aesthetic, offering an intuitive user interface that makes recipe discovery a breeze. The layout is responsive, ensuring a great experience whether you're on desktop, tablet, or mobile.
