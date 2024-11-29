@@ -51,7 +51,8 @@ function RecipeGenerator() {
         if (ingredientList.trim() === '' || ingredientList.split(',').length < 3) {
             return;
         }
-
+        setGenerateErrorFlag(true);
+        return
         if (typeof apiUrl !== 'string') {
             console.error('Error fetching backend server');
             return;
@@ -140,7 +141,7 @@ function RecipeGenerator() {
                 {(generateClicked && (ingredientList.trim() === '' || ingredientList.split(',').length < 3)) &&
                     <div className="error-message">Please enter at least three comma-separated ingredients.</div>
                 }
-                {generateErrorFlag && <div className="error-message">Error generating recipe - please try again!</div>}
+                {generateErrorFlag && <div className="error-message">Sorry, we've deprecated our public backend to save $7 a month - please use chatGPT!</div>}
                 <div className='bottom-component'>
                     <IngredientInput onIngredientChange={handleIngredientListChange} />
                     <button className='generate' onClick={handleGenerateClick}>Generate</button>
